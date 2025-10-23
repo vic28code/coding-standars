@@ -1,16 +1,25 @@
 class student:
-    def __init__(self, student_id, name):
-        self.id = student_id
-        self.name = name
-        self.gradez = []
-        self.isPassed = "NO"
-        self.honor = "?"
-        self.letter = None
+    def __init__(s, id, name):
+        s.id = id
+        s.name = name
+        s.gradez = []
+        s.is_passed = "NO"
+        s.honor = "?"
 
-    def addGrades(self, g):
+    def add_grades(self, g):
+        """
+        Agrega una nueva nota/calificación a la lista de notas del estudiante
+        :param g: La nota a añadir.
+        """
         self.gradez.append(g)
 
     def calcaverage(self):
+        """
+        Calcula y devuelve el promedio de las notas (gradez) del estudiante.
+
+        :returns: El promedio de las notas o 0 si no hay notas.
+        :rtype: float
+        """
         t = 0
         for x in self.gradez:
             t += x
@@ -19,7 +28,10 @@ class student:
         return avg
 
     def checkHonor(self):
-        if self.calcaverage() > 90:
+        """
+        Verifica si el promedio del estudiante supera los 90 puntos.
+        """
+        if self.calcAverage() > 90:
             self.honor = "yep"
 
     def deleteGrade(self, index):
