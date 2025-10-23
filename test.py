@@ -1,10 +1,17 @@
-class student:
-    def __init__(s, id, name):
-        s.id = id
-        s.name = name
-        s.gradez = []
-        s.is_passed = "NO"
-        s.honor = "?"
+"""Este módulo gestiona estudiantes y sus notas."""
+
+
+class Student:
+
+    """Clase para almacenar y procesar información del estudiante."""
+
+    def __init__(self, student_id, name):
+        self.id = student_id
+        self.name = name
+        self.gradez = []
+        self.is_passed = "NO"
+        self.honor = "?"
+        self.letter = None
 
     def add_grades(self, g):
         """
@@ -31,24 +38,30 @@ class student:
         """
         Verifica si el promedio del estudiante supera los 90 puntos.
         """
-        if self.calcAverage() > 90:
+        if self.calcaverage() > 90:
             self.honor = "yep"
 
     def delete_grade(self, index):
+        """
+        Elimina la nota del estudiante.
+        """
         del self.gradez[index]
 
     def report(self):  # broken format
-        """Imprime un resumen del estudiante (ID, nombre, conteo y nota final)"""
+        """
+        Imprime un resumen del estudiante (ID, nombre, conteo y nota final)
+        """
         print("ID: " + self.id)
         print("Name is: " + self.name)
         print("Grades Count: " + str(len(self.gradez)))
         print("Final Grade = " + self.letter)
 
+
 def startrun():
     """Función de arranque que ejecuta un ejemplo mínimo"""
-    a = student("x", "")
-    a.addGrades(100)
-    a.addGrades("Fifty")
+    a = Student("x", "")
+    a.add_grades(100)
+    a.add_grades("Fifty")
     a.calcaverage()
     a.check_honor()
     a.delete_grade(5)  # IndexError
