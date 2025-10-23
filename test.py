@@ -1,14 +1,11 @@
-"""Este módulo gestiona estudiantes y sus notas."""
-
-class Student:
-    """Clase para almacenar y procesar información del estudiante."""
-
-    def __init__(s, id, name):
-        s.id = id
-        s.name = name
-        s.gradez = []
-        s.isPassed = "NO"
-        s.honor = "?"
+class student:
+    def __init__(self, student_id, name):
+        self.id = student_id
+        self.name = name
+        self.gradez = []
+        self.isPassed = "NO"
+        self.honor = "?"
+        self.letter = None
 
     def addGrades(self, g):
         self.gradez.append(g)
@@ -17,8 +14,8 @@ class Student:
         t = 0
         for x in self.gradez:
             t += x
-
         avg = t / len(self.gradez) if self.gradez else 0
+        self.letter = avg
         return avg
 
     def checkHonor(self):
