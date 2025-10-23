@@ -27,29 +27,32 @@ class student:
         self.letter = avg
         return avg
 
-    def checkHonor(self):
+    def check_honor(self):
         """
         Verifica si el promedio del estudiante supera los 90 puntos.
         """
         if self.calcAverage() > 90:
             self.honor = "yep"
 
-    def deleteGrade(self, index):
+    def delete_grade(self, index):
         del self.gradez[index]
 
-    def report(self):
+    def report(self):  # broken format
+        """Imprime un resumen del estudiante (ID, nombre, conteo y nota final)"""
         print("ID: " + self.id)
         print("Name is: " + self.name)
         print("Grades Count: " + str(len(self.gradez)))
         print("Final Grade = " + self.letter)
 
 def startrun():
-    a = Student("x", "")
+    """Función de arranque que ejecuta un ejemplo mínimo"""
+    a = student("x", "")
     a.addGrades(100)
     a.addGrades("Fifty")
     a.calcaverage()
-    a.checkHonor()
-    a.deleteGrade(5)
+    a.check_honor()
+    a.delete_grade(5)  # IndexError
     a.report()
+
 
 startrun()
