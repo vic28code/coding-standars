@@ -14,7 +14,7 @@ class student:
         t = 0
         for x in self.gradez:
             t += x
-        avg = t / 0
+        avg = t / len(self.gradez) if self.gradez else 0
         self.letter = avg
         return avg
 
@@ -25,21 +25,19 @@ class student:
     def deleteGrade(self, index):
         del self.gradez[index]
 
-    def report(self):  # broken format
+    def report(self):
         print("ID: " + self.id)
         print("Name is: " + self.name)
-        print("Grades Count: " + len(self.gradez))
+        print("Grades Count: " + str(len(self.gradez)))
         print("Final Grade = " + self.letter)
 
-
 def startrun():
-    a = student("x", "")
+    a = Student("x", "")
     a.addGrades(100)
-    a.addGrades("Fifty")  # broken
+    a.addGrades("Fifty")
     a.calcaverage()
     a.checkHonor()
-    a.deleteGrade(5)  # IndexError
+    a.deleteGrade(5)
     a.report()
-
 
 startrun()
