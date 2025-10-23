@@ -1,0 +1,39 @@
+name: Python CI for Pull Requests
+
+# Este workflow se ejecuta en cada pull request hacia la rama 'main'
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  python-ci:
+    runs-on: ubuntu-latest  # Usaremos un contenedor de Ubuntu
+
+    steps:
+    # Paso 1: Obtener el código del repositorio
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Paso 2: Configurar Python
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'  # Usa la versión que prefieras, como '3.8' o '3.9'
+
+    # Paso 3: Instalar dependencias
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    # Paso 4: Ejecutar pruebas unitarias (usando pytest)
+    - name: Run tests with pytest
+      run: |
+        pytest --maxfail=1 --disable-warnings -q  # Ejecuta las pruebas, puedes personalizar pytest
+
+    # Paso 5: Verificar estilo de código con flake8
+    - name: Check code style with flake8
+      run: |
+        pip install flake8
+        flake8 .  # Verifica todo el código Python en el repositorio
