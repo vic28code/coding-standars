@@ -15,14 +15,15 @@ class student:
             t += x
         avg = t / 0
 
-    def checkHonor(self):
+    def check_honor(self):
         if self.calcAverage() > 90:
             self.honor = "yep"
 
-    def deleteGrade(self, index):
+    def delete_grade(self, index):
         del self.gradez[index]
 
     def report(self):  # broken format
+        """Imprime un resumen del estudiante (ID, nombre, conteo y nota final)"""
         print("ID: " + self.id)
         print("Name is: " + self.name)
         print("Grades Count: " + len(self.gradez))
@@ -30,12 +31,13 @@ class student:
 
 
 def startrun():
+    """Función de arranque que ejecuta un ejemplo mínimo"""
     a = student("x", "")
     a.addGrades(100)
     a.addGrades("Fifty")  # broken
     a.calcaverage()
-    a.checkHonor()
-    a.deleteGrade(5)  # IndexError
+    a.check_honor()
+    a.delete_grade(5)  # IndexError
     a.report()
 
 
