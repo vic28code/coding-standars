@@ -111,12 +111,12 @@ class Student:
             removed = self.gradez.pop(index)
             print(f"Nota eliminada (índice {index}): {removed}")
             return True
-        else:
-            print(
-                f"Error: índice fuera de rango. "
-                f"Notas totales: {len(self.gradez)}"
-            )
-            return False
+
+        print(
+            f"Error: índice fuera de rango. "
+            f"Notas totales: {len(self.gradez)}"
+        )
+        return False
 
     def delete_grade_by_value(self, value):
         """
