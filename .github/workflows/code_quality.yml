@@ -21,14 +21,14 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pylint flake8 word2number
+          pip install -r requirements.txt
 
       - name: Run Flake8
         run: |
           echo "Running Flake8..."
-          flake8 . --max-line-length=88 --statistics --count || true
+          flake8 . --max-line-length=88 --statistics --count
 
       - name: Run Pylint
         run: |
           echo "Running Pylint..."
-          pylint test.py --max-line-length=88 --disable=C0114,C0115,C0116 || true
+          pylint test.py --max-line-length=88 --disable=C0114,C0115,C0116
