@@ -37,3 +37,8 @@ jobs:
       run: |
         pip install flake8
         flake8 .  # Verifica todo el código Python en el repositorio
+      
+    - name: Run Pylint
+      run: |
+        echo "Running Pylint..."
+        pylint test.py --max-line-length=88 --disable=C0114,C0115,C0116
