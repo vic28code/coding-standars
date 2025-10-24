@@ -64,11 +64,11 @@ class Student:
     def _letter_from_average(self, avg):
         if avg >= 90.0:
             return "A"
-        elif avg >= 80.0:
+        if avg >= 80.0:
             return "B"
-        elif avg >= 70.0:
+        if avg >= 70.0:
             return "C"
-        elif avg >= 60.0:
+        if avg >= 60.0:
             return "D"
         else:
             return "F"
