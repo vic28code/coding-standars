@@ -70,8 +70,7 @@ class Student:
             return "C"
         if avg >= 60.0:
             return "D"
-        else:
-            return "F"
+        return "F"
 
     def calcaverage(self):
         """
